@@ -23,6 +23,11 @@ class AdventOfCodeTasksTest {
         runTaskTest(Hashes(), 254575, 1038736)
     }
 
+    @Test
+    fun day5() {
+        runTaskTest(Words(), 238, 69)
+    }
+
     private fun runTaskTest(task: AdventOfCodeTask, part1Result: Any, part2Result: Any) {
         assertEquals(part1Result, task.run())
         assertEquals(part2Result, task.run(part2 = true))

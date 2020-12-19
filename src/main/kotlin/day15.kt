@@ -19,21 +19,18 @@ class Cookies : AdventOfCodeTask {
 
         var maxScore = -1
         for (i in 0..100) {
-            for (j in 0..100) {
-                for (k in 0..100) {
-                    for (l in 0..100) {
-                        if (i + j + k + l != 100) continue
-                        val amounts = setOf(i, j, k, l)
-                        val totalProperties = propertiesNames.associateWith {
-                            val sum = amounts.mapIndexed { index, amount ->
-                                ingredients[index].properties[it]!! * amount
-                            }.sum()
-                            maxOf(sum, 0)
-                        }
-                        if (!part2 || totalProperties["calories"] == 500) {
-                            val score = totalProperties.filterKeys { it != "calories" }.values.reduce { a, b -> a * b }
-                            maxScore = maxOf(score, maxScore)
-                        }
+            for (j in 0..(100 - i)) {
+                for (k in 0..(100 - i - j)) {
+                    val amounts = setOf(i, j, k, 100 - i - j - k)
+                    val totalProperties = propertiesNames.associateWith {
+                        val sum = amounts.mapIndexed { index, amount ->
+                            ingredients[index].properties[it]!! * amount
+                        }.sum()
+                        maxOf(sum, 0)
+                    }
+                    if (!part2 || totalProperties["calories"] == 500) {
+                        val score = totalProperties.filterKeys { it != "calories" }.values.reduce { a, b -> a * b }
+                        maxScore = maxOf(score, maxScore)
                     }
                 }
             }

@@ -63,6 +63,11 @@ class AdventOfCodeTasksTest {
         runTaskTest(JsonSum(), 191164, 87842)
     }
 
+    @Test
+    fun day13() {
+        runTaskTest(Seats(), 618, 601)
+    }
+
     private fun runTaskTest(task: AdventOfCodeTask, part1Result: Any, part2Result: Any) {
         assertEquals(part1Result, task.run())
         assertEquals(part2Result, task.run(part2 = true))

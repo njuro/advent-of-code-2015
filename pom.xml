@@ -92,6 +92,11 @@
             <artifactId>kotlin-stdlib-jdk8</artifactId>
             <version>1.4.21</version>
         </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlinx</groupId>
+            <artifactId>kotlinx-serialization-json</artifactId>
+            <version>1.0.1</version>
+        </dependency>
     </dependencies>
 
 </project>

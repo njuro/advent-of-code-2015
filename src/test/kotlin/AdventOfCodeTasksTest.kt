@@ -53,6 +53,11 @@ class AdventOfCodeTasksTest {
         runTaskTest(MorrisSequence(), 492982, 6989950)
     }
 
+    @Test
+    fun day11() {
+        runTaskTest(Passwords(), "hxbxxyzz", "hxcaabcc")
+    }
+
     private fun runTaskTest(task: AdventOfCodeTask, part1Result: Any, part2Result: Any) {
         assertEquals(part1Result, task.run())
         assertEquals(part2Result, task.run(part2 = true))

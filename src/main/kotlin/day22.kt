@@ -14,9 +14,6 @@ class Day22 : AdventOfCodeTask {
 
         fun castSpell(opponent: Warrior, spell: Spell) {
             mana -= spell.cost
-            if (mana < 0) {
-                throw IllegalArgumentException("Out of mana")
-            }
             println("Casting spell ${spell.name}!")
 
             if (spell.instantStart) {
@@ -75,7 +72,7 @@ class Day22 : AdventOfCodeTask {
         return game(
             player.copy(),
             boss.copy(),
-            mutableListOf(4, 2, 1, 3, 0, 0, 0, 0)
+            mutableListOf(4, 2, 1, 3, 0)
         )
     }
 
@@ -86,7 +83,15 @@ class Day22 : AdventOfCodeTask {
             println("Player: $player")
             println("Boss: $boss")
             player.spellEffects(boss)
-            player.castSpell(boss, spells.removeFirst())
+            val spell = spells.removeFirstOrNull() ?: run {
+                println("Out of spells!")
+                return false
+            }
+            player.castSpell(boss, spell)
+            if (player.mana < 0) {
+                println("Out of mana!")
+                return false
+            }
             println()
 
             println("-- Boss turn --")

@@ -1,7 +1,7 @@
 import utils.readInputLines
 
 /** [https://adventofcode.com/2015/day/16] */
-class Day16 : AdventOfCodeTask {
+class Aunts : AdventOfCodeTask {
     override fun run(part2: Boolean): Any {
         val data = """
             children: 3
@@ -40,5 +40,5 @@ class Day16 : AdventOfCodeTask {
 }
 
 fun main() {
-    println(Day16().run(part2 = true))
+    println(Aunts().run(part2 = true))
 }

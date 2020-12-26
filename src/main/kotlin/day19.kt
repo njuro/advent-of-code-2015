@@ -11,33 +11,24 @@ class Day19 : AdventOfCodeTask {
         }.toSet()
 
         return if (part2) {
-            findPath(
-                molecule,
-                substitutions.map { it.second to it.first }.sortedByDescending { it.first.length }.toSet()
-            )
+            val reversedSubstitutions = substitutions.map { it.second to it.first }.toSet()
+            generateSequence(molecule) { prev ->
+                reversedSubstitutions.first { it.first in prev }.let { (from, to) ->
+                    doSubstitution(prev, from, to).first()
+                }
+            }.takeWhile { it != "e" }.count()
         } else substitutions.flatMap { doSubstitution(molecule, it.first, it.second) }.distinct().size
     }
 
-    private fun findPath(
-        starting: String,
-        substitutions: Set<Pair<String, String>>
-    ): Int {
-        return -1
-    }
-
-    private fun doSubstitution(input: String, from: String, to: String): MutableSet<String> {
-        val results = mutableSetOf<String>()
-
+    private fun doSubstitution(input: String, from: String, to: String) = sequence {
         var index = input.indexOf(from)
         while (index != -1) {
-            results.add(input.substring(0, index) + to + input.substring(index + from.length))
+            yield(input.substring(0, index) + to + input.substring(index + from.length))
             index = input.indexOf(from, startIndex = index + 1)
         }
-
-        return results
     }
 }
 
 fun main() {
-    println(Day19().run(part2 = false))
+    println(Day19().run(part2 = true))
 }

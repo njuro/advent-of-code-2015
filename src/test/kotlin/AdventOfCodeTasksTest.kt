@@ -78,6 +78,56 @@ class AdventOfCodeTasksTest {
         runTaskTest(Cookies(), 222870, 117936)
     }
 
+    @Test
+    fun day16() {
+        runTaskTest(Aunts(), 373, 260)
+    }
+
+    @Test
+    fun day17() {
+        runTaskTest(Containers(), 654, 57)
+    }
+
+    @Test
+    fun day18() {
+        runTaskTest(AnimatedLights(), 768, 781)
+    }
+
+    @Test
+    fun day19() {
+        runTaskTest(Reactions(), 535, 212)
+    }
+
+    @Test
+    fun day20() {
+        runTaskTest(Houses(), 776160, 786240)
+    }
+
+    @Test
+    fun day21() {
+        runTaskTest(Warriors(), 91, 158)
+    }
+
+    @Test
+    fun day22() {
+        runTaskTest(Wizards(), 953, 1289)
+    }
+
+    @Test
+    fun day23() {
+        runTaskTest(Computer(), 170L, 247L)
+    }
+
+    @Test
+    fun day24() {
+        runTaskTest(Packages(), 10439961859L, 72050269L)
+    }
+
+    @Test
+    fun day25() {
+        runTaskTest(Diagonals(), 2650453L, 2650453L)
+    }
+
     private fun runTaskTest(task: AdventOfCodeTask, part1Result: Any, part2Result: Any) {
         assertEquals(part1Result, task.run())
         assertEquals(part2Result, task.run(part2 = true))

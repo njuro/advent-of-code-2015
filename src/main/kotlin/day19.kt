@@ -1,7 +1,7 @@
 import utils.readInputBlock
 
 /** [https://adventofcode.com/2015/day/19] */
-class Day19 : AdventOfCodeTask {
+class Reactions : AdventOfCodeTask {
 
     override fun run(part2: Boolean): Any {
         val (substitutionData, molecule) = readInputBlock("19.txt").split("\n\n")
@@ -30,5 +30,5 @@ class Day19 : AdventOfCodeTask {
 }
 
 fun main() {
-    println(Day19().run(part2 = true))
+    println(Reactions().run(part2 = true))
 }

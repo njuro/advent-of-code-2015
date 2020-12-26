@@ -3,7 +3,7 @@ import java.lang.Integer.min
 import kotlin.math.max
 
 /** [https://adventofcode.com/2015/day/22] */
-class Day22 : AdventOfCodeTask {
+class Wizards : AdventOfCodeTask {
     data class Warrior(var hp: Int, val damage: Int) {
         fun attack(opponent: Wizard) {
             opponent.hp -= max(damage - opponent.armor, 1)
@@ -65,6 +65,7 @@ class Day22 : AdventOfCodeTask {
     var leastCost = Int.MAX_VALUE
 
     override fun run(part2: Boolean): Any {
+        leastCost = Int.MAX_VALUE
         val (hp, damage) = readInputLines("22.txt").map { it.substringAfter(": ").toInt() }
         val boss = Warrior(hp, damage)
         val player = Wizard(50, 500)
@@ -100,5 +101,5 @@ class Day22 : AdventOfCodeTask {
 }
 
 fun main() {
-    println(Day22().run(part2 = true))
+    println(Wizards().run(part2 = true))
 }

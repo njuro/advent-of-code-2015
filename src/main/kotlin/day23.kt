@@ -1,7 +1,7 @@
 import utils.readInputLines
 
 /** [https://adventofcode.com/2015/day/23] */
-class Day23 : AdventOfCodeTask {
+class Computer : AdventOfCodeTask {
     override fun run(part2: Boolean): Any {
         val instructions = readInputLines("23.txt").map {
             val (instruction, arguments) = it.split(" ", limit = 2)
@@ -9,7 +9,7 @@ class Day23 : AdventOfCodeTask {
         }
         val registers = mutableMapOf("a" to if (part2) 1L else 0L, "b" to 0L)
         var pointer = 0
-        
+
         while (pointer in instructions.indices) {
             val (instruction, arguments) = instructions[pointer]
             when (instruction) {
@@ -36,5 +36,5 @@ class Day23 : AdventOfCodeTask {
 }
 
 fun main() {
-    println(Day23().run(part2 = true))
+    println(Computer().run(part2 = true))
 }

@@ -2,7 +2,7 @@ import utils.readInputLines
 import kotlin.math.min
 
 /** [https://adventofcode.com/2015/day/24] */
-class Day24 : AdventOfCodeTask {
+class Packages : AdventOfCodeTask {
     private val packages = readInputLines("24.txt").map(String::toInt).sortedDescending()
     private var smallestGroupSize = Int.MAX_VALUE
 
@@ -31,5 +31,5 @@ class Day24 : AdventOfCodeTask {
 }
 
 fun main() {
-    println(Day24().run(part2 = false))
+    println(Packages().run(part2 = false))
 }
